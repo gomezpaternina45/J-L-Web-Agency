@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="assets/Icono_J_L.png">
+    <link rel="apple-touch-icon" href="assets/Icono_J_L.png">
+    <title>J&L Web Agency</title>
+    <meta name="description" content="Servicios de desarrollo web, software a medida y nuestro stack tecnológico. J&L Web Agency." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              colors: {
+                brand: {
+                  DEFAULT: '#0B5FA5',
+                  light: '#38B6FF',
+                  dark: '#072B4F',
+                  50: '#EBF5FF',
+                  900: '#041E35'
+                }
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- ═══════════ HEADER ═══════════ -->
+    <header class="header-blur bg-white/80 shadow-sm sticky top-0 z-50 border-b border-gray-100">
+      <div class="max-w-6xl mx-auto px-6 py-2.5 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="assets/J&L.png" alt="J&L Web Agency" class="h-12 w-auto logo-glow">
+        </a>
+        <nav id="nav" class="hidden md:flex gap-0.5 text-sm items-center">
+          <a href="index.html" class="nav-link px-4 py-2 rounded-xl text-gray-500 hover:text-gray-900 hover:bg-gray-50 font-medium transition-all">Inicio</a>
+          <a href="servicios.html" class="nav-link-active nav-link px-4 py-2 rounded-xl text-sm font-semibold transition-all" style="color:#0B5FA5; background:rgba(11,95,165,0.08);">Servicios</a>
+          <a href="proyectos.html" class="nav-link px-4 py-2 rounded-xl text-gray-500 hover:text-gray-900 hover:bg-gray-50 font-medium transition-all">Proyectos</a>
+          <div class="w-px h-5 bg-gray-200 mx-2"></div>
+          <button onclick="document.getElementById('searchOverlay').classList.remove('hidden');document.getElementById('searchInput').focus();" class="p-2 rounded-xl text-gray-400 hover:text-gray-700 hover:bg-gray-50 transition-all" aria-label="Buscar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+          <a href="contacto.html" class="btn-shimmer ml-1 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white text-sm font-semibold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5" style="background:linear-gradient(135deg,#0B5FA5,#38B6FF)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Contacto
+          </a>
+        </nav>
+        <button id="navToggle" class="md:hidden p-2 rounded-xl hover:bg-gray-100 transition" aria-label="Abrir menú">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-gray-700"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+      <div id="mobileNav" class="md:hidden hidden px-6 pb-4 bg-white border-t border-gray-100">
+        <nav class="flex flex-col gap-1 pt-3">
+          <div class="relative mb-2">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="Buscar servicios, proyectos..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-sm text-gray-700 focus:outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-100 transition" style="color:#333">
+          </div>
+          <a href="index.html" class="mobile-link py-2.5 px-4 rounded-xl hover:bg-gray-50 text-gray-600 transition flex items-center gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            Inicio
+          </a>
+          <a href="servicios.html" class="mobile-link py-2.5 px-4 rounded-xl font-semibold transition flex items-center gap-3" style="color:#0B5FA5; background:rgba(11,95,165,0.08);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            Servicios
+          </a>
+          <a href="proyectos.html" class="mobile-link py-2.5 px-4 rounded-xl hover:bg-gray-50 text-gray-600 transition flex items-center gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Proyectos
+          </a>
+          <a href="contacto.html" class="mobile-link py-3 px-4 rounded-xl text-white text-center font-semibold mt-1 flex items-center justify-center gap-2" style="background:linear-gradient(135deg,#0B5FA5,#38B6FF)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Contacto
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ═══════════ SEARCH OVERLAY ═══════════ -->
+    <div id="searchOverlay" class="hidden fixed inset-0 z-[999] flex items-start justify-center pt-24" onclick="if(event.target===this)this.classList.add('hidden')">
+      <div class="absolute inset-0 bg-brand-900/60 backdrop-blur-sm"></div>
+      <div class="relative w-full max-w-2xl mx-6 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden" style="animation:search-pop 0.2s ease">
+        <div class="flex items-center gap-3 px-5 py-4 border-b border-gray-100">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B5FA5" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="searchInput" type="text" placeholder="Buscar servicios, proyectos, tecnologías..." class="flex-1 text-gray-800 text-base outline-none bg-transparent placeholder:text-gray-400" onkeyup="siteSearch(this.value)" style="color:#333">
+          <kbd class="hidden sm:inline-block px-2 py-0.5 rounded bg-gray-100 text-gray-400 text-xs font-mono border border-gray-200">ESC</kbd>
+        </div>
+        <div id="searchResults" class="max-h-80 overflow-y-auto p-3">
+          <div class="text-center py-8 text-gray-400 text-sm">Escribe para buscar en el sitio...</div>
+        </div>
+      </div>
+    </div>
+    <style>
+      @keyframes search-pop { from { opacity:0; transform: scale(0.95) translateY(-10px); } to { opacity:1; transform: scale(1) translateY(0); } }
+    </style>
+    <script>
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape') document.getElementById('searchOverlay').classList.add('hidden');
+      if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();document.getElementById('searchOverlay').classList.remove('hidden');document.getElementById('searchInput').focus();}
+    });
+    var searchData=[
+      {title:'Inicio',desc:'Página principal de J&L Web Agency',url:'index.html',tags:'inicio home principal'},
+      {title:'Páginas web profesionales',desc:'Diseño y desarrollo de sitios web a medida',url:'servicios.html',tags:'paginas web diseño wordpress sitio'},
+      {title:'Tiendas online y portafolios',desc:'E-commerce y portafolios digitales',url:'servicios.html',tags:'tienda online ecommerce portafolio'},
+      {title:'Software a medida',desc:'Sistemas empresariales personalizados',url:'servicios.html',tags:'software sistema app aplicacion medida'},
+      {title:'Casa Franco Hotel',desc:'Hotel boutique en Cartagena - WordPress + Cloudbeds',url:'proyectos.html',tags:'casa franco hotel cartagena wordpress'},
+      {title:'Marcela Cotte Event Planner',desc:'Portafolio de planificadora de bodas',url:'proyectos.html',tags:'marcela cotte bodas eventos'},
+      {title:'Software empresarial',desc:'Sistemas a medida con Vue.js y PHP',url:'proyectos.html',tags:'software vue php mysql'},
+      {title:'Contacto',desc:'Escríbenos para cotizar tu proyecto',url:'contacto.html',tags:'contacto email whatsapp cotizar'},
+    ];
+    function siteSearch(q){
+      var r=document.getElementById('searchResults');
+      if(!q.trim()){r.innerHTML='<div class="text-center py-8 text-gray-400 text-sm">Escribe para buscar en el sitio...</div>';return;}
+      q=q.toLowerCase();
+      var matches=searchData.filter(function(s){return s.title.toLowerCase().includes(q)||s.desc.toLowerCase().includes(q)||s.tags.includes(q);});
+      if(!matches.length){r.innerHTML='<div class="text-center py-8 text-gray-400 text-sm">No se encontraron resultados para "'+q+'"</div>';return;}
+      r.innerHTML=matches.map(function(m){return '<a href="'+m.url+'" class="flex items-center gap-4 p-3 rounded-xl hover:bg-blue-50 transition group"><div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(11,95,165,0.08)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5FA5" stroke-width="2"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="13 2 13 9 20 9"/></svg></div><div><div class="font-semibold text-gray-900 text-sm group-hover:text-blue-700 transition">'+m.title+'</div><div class="text-xs text-gray-400">'+m.desc+'</div></div><svg class="ml-auto text-gray-300 group-hover:text-blue-500 transition flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>';}).join('');
+    }
+    </script>
+
+    <!-- ═══════════ PAGE HERO ═══════════ -->
+    <section class="relative py-20 sm:py-28 overflow-hidden" style="background: linear-gradient(135deg, #041E35 0%, #072B4F 40%, #0B5FA5 100%);">
+      <div class="hero-grid absolute inset-0"></div>
+      <div class="absolute top-10 right-10 w-80 h-80 bg-blue-400 rounded-full blur-3xl opacity-15"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-400 rounded-full blur-3xl opacity-10"></div>
+
+      <!-- Floating service icons -->
+      <div class="absolute top-12 left-[8%] hidden lg:block" style="animation: icon-float 6s ease-in-out infinite;">
+        <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center rotate-12">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38B6FF" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+      </div>
+      <div class="absolute top-20 right-[12%] hidden lg:block" style="animation: icon-float 5s ease-in-out 1s infinite;">
+        <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center -rotate-6">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38B6FF" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+      </div>
+      <div class="absolute bottom-20 left-[15%] hidden lg:block" style="animation: icon-float 7s ease-in-out 0.5s infinite;">
+        <div class="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center rotate-6">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38B6FF" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+      </div>
+      <div class="absolute bottom-24 right-[8%] hidden lg:block" style="animation: icon-float 6s ease-in-out 2s infinite;">
+        <div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center -rotate-12">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38B6FF" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+      </div>
+
+      <div class="relative max-w-6xl mx-auto px-6 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-semibold uppercase tracking-wider mb-6" style="background:rgba(56,182,255,0.15); color:#38B6FF; border:1px solid rgba(56,182,255,0.15);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Nuestros servicios
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight" style="font-family:Poppins">Lo que hacemos<br><span class="gradient-text">por ti</span></h1>
+        <p class="mt-6 text-blue-200 max-w-2xl mx-auto text-lg" style="opacity:0.7">Soluciones digitales completas para todo tipo de negocios y empresas.</p>
+
+        <!-- Mini stat pills -->
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-white/80" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.08);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38B6FF" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Desarrollo a medida
+          </div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-white/80" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.08);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38B6FF" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Soporte continuo
+          </div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm text-white/80" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.08);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38B6FF" stroke-width="2"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+            Diseño moderno
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 60" fill="none" class="w-full"><path d="M0 60V20C240 0 480 40 720 30C960 20 1200 0 1440 20V60H0Z" fill="rgb(249 250 251)"/></svg>
+      </div>
+    </section>
+
+    <!-- ═══════════ SERVICES DETAIL ═══════════ -->
+    <section class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="service-detail-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm" data-aos="fade-up">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900" style="font-family:Poppins">Páginas web profesionales</h3>
+          <p class="mt-3 text-gray-500 leading-relaxed">Diseñamos y desarrollamos sitios web atractivos y funcionales para cualquier tipo de negocio o emprendimiento.</p>
+          <ul class="mt-5 space-y-3">
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Diseño responsive y moderno
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Integración con motor de reservas (Cloudbeds, etc.)
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Galería de habitaciones y experiencias
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              SEO optimizado para turismo
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Soporte multilenguaje (ES/EN)
+            </li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-detail-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-400 to-pink-600 flex items-center justify-center mb-6 shadow-lg shadow-pink-500/20">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900" style="font-family:Poppins">Tiendas online y portafolios</h3>
+          <p class="mt-3 text-gray-500 leading-relaxed">E-commerce, catálogos digitales y portafolios elegantes para mostrar tus productos o servicios.</p>
+          <ul class="mt-5 space-y-3">
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Diseño elegante y sofisticado
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Galería de productos con lightbox
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Integración con Instagram y redes
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Sección de testimonios
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Formulario de contacto personalizado
+            </li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-detail-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900" style="font-family:Poppins">Software a medida</h3>
+          <p class="mt-3 text-gray-500 leading-relaxed">Sistemas personalizados para la gestión interna de cualquier tipo de empresa.</p>
+          <ul class="mt-5 space-y-3">
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Paneles de administración
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Reportes y dashboards
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Gestión de inventario y procesos
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              APIs REST e integraciones
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-600">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+              Base de datos MySQL / SQL Server
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ TECH STACK ═══════════ -->
+    <section class="relative py-20 overflow-hidden" style="background: linear-gradient(135deg, #0a0f1a 0%, #0d1b2a 50%, #0a1628 100%);">
+      <canvas id="binaryRain" class="absolute inset-0 w-full h-full" style="pointer-events:none;"></canvas>
+      <div id="skillsInteraction" class="absolute inset-0" style="z-index:1;"></div>
+
+      <div class="relative max-w-6xl mx-auto px-6" style="z-index:2;">
+        <div class="text-center mb-10">
+          <div class="inline-block px-3 py-1 rounded-md text-xs font-semibold uppercase tracking-wider mb-4" style="background:rgba(56,182,255,0.15); color:#38B6FF;">Tecnologías</div>
+          <h2 class="text-3xl font-bold text-white" style="font-family:Poppins">Nuestro stack tecnológico</h2>
+          <p class="mt-3 text-gray-400 max-w-lg mx-auto">Las herramientas que usamos para construir soluciones robustas y modernas.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="skill-card-dark group p-6 rounded-2xl" data-aos="fade-up">
+            <div class="skill-icon-float w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-blue-500/20">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div class="font-semibold text-white">Frontend</div>
+            <div class="text-sm text-gray-400 mt-2 leading-relaxed">HTML · CSS · Tailwind<br>JavaScript · Vue.js</div>
+          </div>
+
+          <div class="skill-card-dark group p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="80">
+            <div class="skill-icon-float w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-violet-500/20">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="font-semibold text-white">Backend</div>
+            <div class="text-sm text-gray-400 mt-2 leading-relaxed">PHP · APIs REST<br>WordPress</div>
+          </div>
+
+          <div class="skill-card-dark group p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="160">
+            <div class="skill-icon-float w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-emerald-500/20">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <div class="font-semibold text-white">Bases de datos</div>
+            <div class="text-sm text-gray-400 mt-2 leading-relaxed">MySQL · SQL Server<br>PostgreSQL</div>
+          </div>
+
+          <div class="skill-card-dark group p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="240">
+            <div class="skill-icon-float w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-orange-500/20">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div class="font-semibold text-white">Deploy & Hosting</div>
+            <div class="text-sm text-gray-400 mt-2 leading-relaxed">Hostinger · cPanel<br>Despliegues</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ WHAT'S INCLUDED ═══════════ -->
+    <section class="py-16" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <div class="section-label">Incluido</div>
+          <h2 class="text-3xl font-bold text-gray-900" style="font-family:Poppins">Todo proyecto incluye</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm" data-aos="fade-up">
+            <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B5FA5" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 text-sm">Diseño responsive</h4>
+              <p class="text-xs text-gray-500 mt-1">Se ve perfecto en móvil, tablet y desktop.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="60">
+            <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 text-sm">Optimización SEO</h4>
+              <p class="text-xs text-gray-500 mt-1">Estructura optimizada para buscadores.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="120">
+            <div class="w-10 h-10 rounded-lg bg-violet-50 flex items-center justify-center flex-shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 text-sm">SSL y seguridad</h4>
+              <p class="text-xs text-gray-500 mt-1">Certificado SSL y buenas prácticas de seguridad.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="180">
+            <div class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 text-sm">Velocidad de carga</h4>
+              <p class="text-xs text-gray-500 mt-1">Código optimizado para carga rápida.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="240">
+            <div class="w-10 h-10 rounded-lg bg-pink-50 flex items-center justify-center flex-shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 text-sm">Capacitación</h4>
+              <p class="text-xs text-gray-500 mt-1">Te enseñamos a administrar tu sitio.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-10 h-10 rounded-lg bg-cyan-50 flex items-center justify-center flex-shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 text-sm">Soporte post-lanzamiento</h4>
+              <p class="text-xs text-gray-500 mt-1">Acompañamiento después de la entrega.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section class="max-w-6xl mx-auto px-6 py-16">
+      <div class="rounded-3xl overflow-hidden relative" style="background: linear-gradient(135deg, #041E35 0%, #072B4F 40%, #0B5FA5 100%);" data-aos="fade-up">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-400 rounded-full blur-3xl opacity-10"></div>
+        <div class="absolute bottom-0 left-0 w-48 h-48 bg-blue-400 rounded-full blur-3xl opacity-10"></div>
+
+        <div class="relative p-8 sm:p-12 grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 class="text-3xl font-bold text-white" style="font-family:Poppins">¿Listo para empezar?</h2>
+            <p class="mt-4 text-blue-200 leading-relaxed" style="opacity:0.7">
+              Cuéntanos qué necesitas y te enviaremos una propuesta personalizada sin compromiso.
+            </p>
+            <div class="mt-8 space-y-4">
+              <a href="mailto:jylwebagency@outlook.com" class="flex items-center gap-4 text-white/80 hover:text-white transition group">
+                <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div class="text-xs text-blue-300" style="opacity:0.5">Email</div>
+                  <div class="text-sm font-medium">jylwebagency@outlook.com</div>
+                </div>
+              </a>
+              <a href="https://wa.me/573012594767" target="_blank" class="flex items-center gap-4 text-white/80 hover:text-white transition group">
+                <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                </div>
+                <div>
+                  <div class="text-xs text-blue-300" style="opacity:0.5">WhatsApp</div>
+                  <div class="text-sm font-medium">+57 301 259 4767</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <form action="https://formsubmit.co/jylwebagency@outlook.com" method="POST" class="form-glow bg-white/10 rounded-2xl p-6 border border-white/10 space-y-4">
+            <input type="hidden" name="_subject" value="Cotización desde Servicios - J&L Web Agency">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://jylwebagency.com/gracias.html">
+            <div>
+              <label class="text-xs text-blue-200 mb-1 block" style="opacity:0.6">Nombre</label>
+              <input type="text" name="nombre" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white text-sm focus:outline-none focus:border-blue-400/50 transition">
+            </div>
+            <div>
+              <label class="text-xs text-blue-200 mb-1 block" style="opacity:0.6">Email</label>
+              <input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white text-sm focus:outline-none focus:border-blue-400/50 transition">
+            </div>
+            <div>
+              <label class="text-xs text-blue-200 mb-1 block" style="opacity:0.6">¿Qué servicio te interesa?</label>
+              <select name="servicio" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white text-sm focus:outline-none focus:border-blue-400/50 transition">
+                <option value="" class="text-gray-800">Selecciona un servicio</option>
+                <option value="pagina-web" class="text-gray-800">Página web</option>
+                <option value="tienda-online" class="text-gray-800">Tienda online</option>
+                <option value="portafolio" class="text-gray-800">Portafolio / Landing page</option>
+                <option value="software" class="text-gray-800">Software a medida</option>
+                <option value="otro" class="text-gray-800">Otro proyecto</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-xs text-blue-200 mb-1 block" style="opacity:0.6">Mensaje</label>
+              <textarea rows="3" name="mensaje" required placeholder="Cuéntanos sobre tu proyecto..." class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white text-sm focus:outline-none focus:border-blue-400/50 transition resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full py-3 rounded-xl bg-white text-brand font-semibold hover:bg-gray-100 transition shadow-lg">
+              Solicitar cotización
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="relative overflow-hidden" style="background: linear-gradient(135deg, #041E35 0%, #072B4F 40%, #0B5FA5 100%);">
+      <div class="absolute inset-0 hero-grid"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl opacity-5"></div>
+      <div class="absolute bottom-0 left-0 w-72 h-72 bg-cyan-400 rounded-full blur-3xl opacity-5"></div>
+      <div class="relative max-w-6xl mx-auto px-6 pt-16 pb-8" style="z-index:2;">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+          <div class="lg:col-span-2">
+            <div class="flex items-center gap-3 mb-4"><img src="assets/J&L.png" alt="J&L Web Agency" class="h-12 w-auto logo-glow"></div>
+            <p class="text-sm text-blue-200 leading-relaxed max-w-sm" style="opacity:0.6;">Agencia de desarrollo web y software a medida para todo tipo de negocios. Transformamos ideas en soluciones digitales.</p>
+            <div class="mt-6 flex gap-3">
+              <a href="mailto:jylwebagency@outlook.com" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 transition group" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" class="opacity-60 group-hover:opacity-100 transition"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+              <a href="https://wa.me/573012594767" target="_blank" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-green-500/20 transition group" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="white" class="opacity-60 group-hover:opacity-100 transition"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider" style="font-size:0.7rem; letter-spacing:0.1em;">Navegación</h4>
+            <nav class="flex flex-col gap-2.5">
+              <a href="index.html" class="text-sm text-blue-200 hover:text-white transition flex items-center gap-2 group" style="opacity:0.6;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-0 group-hover:opacity-100 transition -ml-4 group-hover:ml-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Inicio</a>
+              <a href="servicios.html" class="text-sm text-blue-200 hover:text-white transition flex items-center gap-2 group" style="opacity:0.6;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-0 group-hover:opacity-100 transition -ml-4 group-hover:ml-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Servicios</a>
+              <a href="proyectos.html" class="text-sm text-blue-200 hover:text-white transition flex items-center gap-2 group" style="opacity:0.6;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-0 group-hover:opacity-100 transition -ml-4 group-hover:ml-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Proyectos</a>
+              <a href="contacto.html" class="text-sm text-blue-200 hover:text-white transition flex items-center gap-2 group" style="opacity:0.6;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-0 group-hover:opacity-100 transition -ml-4 group-hover:ml-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Contacto</a>
+            </nav>
+          </div>
+          <div>
+            <h4 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider" style="font-size:0.7rem; letter-spacing:0.1em;">Contacto</h4>
+            <div class="space-y-3">
+              <a href="mailto:jylwebagency@outlook.com" class="flex items-center gap-3 text-sm text-blue-200 hover:text-white transition" style="opacity:0.6;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38B6FF" stroke-width="2" class="flex-shrink-0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>jylwebagency@outlook.com</a>
+              <a href="https://wa.me/573012594767" target="_blank" class="flex items-center gap-3 text-sm text-blue-200 hover:text-white transition" style="opacity:0.6;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#38B6FF" class="flex-shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>+57 301 259 4767</a>
+              <div class="flex items-center gap-3 text-sm text-blue-200" style="opacity:0.6;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38B6FF" stroke-width="2" class="flex-shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Colombia</div>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span class="text-xs text-blue-200" style="opacity:0.4;">&copy; <span id="year"></span> J&L Web Agency. Todos los derechos reservados.</span>
+          <div class="flex items-center gap-1.5 text-xs text-blue-200" style="opacity:0.4;">Hecho con <svg width="14" height="14" viewBox="0 0 24 24" fill="#38B6FF" class="inline"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg> en Colombia</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp floating button -->
+    <a href="https://wa.me/573012594767?text=Hola%20J%26L%20Web%20Agency%2C%20me%20interesa%20un%20proyecto%20web" target="_blank" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      AOS.init({ once: true, duration: 700, offset: 50 });
+
+      const navToggle = document.getElementById('navToggle');
+      const mobileNav = document.getElementById('mobileNav');
+      navToggle.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+      mobileNav.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => mobileNav.classList.add('hidden'));
+      });
+
+      // Binary Rain
+      (function() {
+        const canvas = document.getElementById('binaryRain');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const section = canvas.parentElement;
+        const interactionLayer = document.getElementById('skillsInteraction');
+        let W, H, columns, drops;
+        const fontSize = 14;
+        const chars = '01';
+        let mouseX = -1000, mouseY = -1000;
+        const mouseRadius = 80;
+
+        function resize() {
+          W = section.offsetWidth; H = section.offsetHeight;
+          canvas.width = W; canvas.height = H;
+          columns = Math.floor(W / fontSize);
+          drops = [];
+          for (let i = 0; i < columns; i++) drops[i] = Math.random() * H / fontSize;
+        }
+        function draw() {
+          ctx.fillStyle = 'rgba(10, 15, 26, 0.12)';
+          ctx.fillRect(0, 0, W, H);
+          for (let i = 0; i < columns; i++) {
+            const x = i * fontSize, y = drops[i] * fontSize;
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            const dx = x - mouseX, dy = y - mouseY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouseRadius) {
+              const intensity = 1 - (dist / mouseRadius);
+              ctx.font = (fontSize + intensity * 6) + 'px monospace';
+              ctx.fillStyle = 'rgba(56, 182, 255, ' + (0.6 + intensity * 0.4) + ')';
+              ctx.shadowColor = '#38B6FF'; ctx.shadowBlur = 8 * intensity;
+            } else {
+              ctx.font = fontSize + 'px monospace';
+              ctx.fillStyle = 'rgba(56, 182, 255, ' + (0.04 + Math.random() * 0.08) + ')';
+              ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0;
+            }
+            ctx.fillText(char, x, y);
+            if (y > H && Math.random() > 0.975) drops[i] = 0;
+            drops[i] += 0.4 + Math.random() * 0.3;
+          }
+          ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0;
+          requestAnimationFrame(draw);
+        }
+        interactionLayer.addEventListener('mousemove', function(e) {
+          const rect = section.getBoundingClientRect();
+          mouseX = e.clientX - rect.left; mouseY = e.clientY - rect.top;
+        });
+        interactionLayer.addEventListener('mouseleave', function() { mouseX = -1000; mouseY = -1000; });
+        interactionLayer.addEventListener('touchmove', function(e) {
+          const rect = section.getBoundingClientRect();
+          mouseX = e.touches[0].clientX - rect.left; mouseY = e.touches[0].clientY - rect.top;
+        }, { passive: true });
+        interactionLayer.addEventListener('touchend', function() { mouseX = -1000; mouseY = -1000; });
+        window.addEventListener('resize', resize);
+        resize(); draw();
+      })();
+    </script>
+  </body>
+</html>

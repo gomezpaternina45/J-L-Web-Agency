@@ -241,10 +241,9 @@
             </div>
           </div>
 
-          <form action="https://formsubmit.co/jylwebagency@outlook.com" method="POST" class="form-glow bg-white/10 rounded-2xl p-6 border border-white/10 space-y-4">
+          <form action="https://formsubmit.co/ajax/jylwebagency@outlook.com" method="POST" class="form-glow bg-white/10 rounded-2xl p-6 border border-white/10 space-y-4" id="contactForm">
             <input type="hidden" name="_subject" value="Nuevo mensaje desde Contacto - J&L Web Agency">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://jylwebagency.com/gracias.html">
             <input type="hidden" name="_template" value="box">
             <input type="hidden" name="_autoresponse" value="¡Hola! Gracias por contactar a J&L Web Agency. Hemos recibido tu mensaje y te responderemos en menos de 24 horas con una propuesta personalizada. Si necesitas atención inmediata, escríbenos por WhatsApp: https://wa.me/573012594767 — Equipo J&L Web Agency">
             <div class="grid sm:grid-cols-2 gap-4">
@@ -279,6 +278,7 @@
             <button type="submit" class="w-full py-3.5 rounded-xl bg-white text-brand font-semibold hover:bg-gray-100 transition shadow-lg text-base">
               Enviar mensaje
             </button>
+            <div id="formMsg" class="hidden text-center py-4 rounded-xl text-sm font-medium"></div>
           </form>
         </div>
       </div>
@@ -416,6 +416,40 @@
       mobileNav.querySelectorAll('.mobile-link').forEach(link => {
         link.addEventListener('click', () => mobileNav.classList.add('hidden'));
       });
+    </script>
+    <script>
+      (function(){
+        var form = document.getElementById('contactForm');
+        if(!form) return;
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          var btn = form.querySelector('button[type="submit"]');
+          var msg = document.getElementById('formMsg');
+          var originalText = btn.textContent;
+          btn.disabled = true;
+          btn.textContent = 'Enviando...';
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          }).then(function(res){
+            if(res.ok){
+              form.reset();
+              msg.className = 'text-center py-4 rounded-xl text-sm font-medium bg-emerald-500/20 text-emerald-300';
+              msg.textContent = '¡Mensaje enviado correctamente! Te responderemos pronto.';
+            } else {
+              msg.className = 'text-center py-4 rounded-xl text-sm font-medium bg-red-500/20 text-red-300';
+              msg.textContent = 'Hubo un error al enviar. Intenta de nuevo o escríbenos por WhatsApp.';
+            }
+          }).catch(function(){
+            msg.className = 'text-center py-4 rounded-xl text-sm font-medium bg-red-500/20 text-red-300';
+            msg.textContent = 'Error de conexión. Intenta de nuevo o escríbenos por WhatsApp.';
+          }).finally(function(){
+            btn.disabled = false;
+            btn.textContent = originalText;
+          });
+        });
+      })();
     </script>
   </body>
 </html>
